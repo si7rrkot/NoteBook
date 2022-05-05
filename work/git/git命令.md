@@ -6,7 +6,7 @@
 | ------------------------------------- | -------------------------------- |
 | git tag v0.0.1                        | 创建一个名为v0.0.1的tag          |
 | git push origin v0.0.1                | 推送tag到远程仓库                |
-| git tag -d v0.0.1                     | 删除名为v0.0.1的仓库             |
+| git tag -d v0.0.1                     | 删除名为v0.0.1的tag              |
 | git push origin --tag                 | 推送所有tag到远程仓库            |
 | git push origin --delete <BranchName> | 删除远端分支 xxx                 |
 | git rm --cached <BranchName>          | 放弃对文件xxx的跟踪,并保留在本地 |

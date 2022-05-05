@@ -57,9 +57,11 @@
 
 ###执行命令进行qemu模拟
 
-     ```shell
-     qemu-system-arm -M vexpress-a9 -m 512M -kernel ./zImage -dtb  vexpress-v2p-ca9.dtb -nographic -append "root=/dev/mmcblk0 rw console=ttyAMA0" -sd rootfs.ext4  
-     ```
+    qemu-system-arm -M vexpress-a9 -m 512M -kernel ./zImage -dtb  vexpress-v2p-ca9.dtb -nographic -append "root=/dev/mmcblk0 rw console=ttyAMA0" -sd rootfs.ext4  
+
+```shell
+qemu-system-arm -M vexpress-a9 -kernel u-boot -m 512M -nographic 
+```
 
 
 
@@ -79,5 +81,46 @@
 
 ```shell
 qemu-system-arm -M help
+```
+
+### 在qemu环境下启动vexpress-a9的rt-thread工程
+
+获取rt-thread源码
+
+```shell
+git clone https://gitee.com/rtthread/rt-thread.git
+```
+
+打开bsp文件夹下面的`vexpress-a9`
+
+安装`scons`
+
+```shell
+sudo apt install scons
+```
+
+编译,在`vexpress-a9`文件夹下执行
+
+```shell
+scons
+```
+
+编译完成生成`rtthread.elf`,然后再在`qemu-vexpress-a9`文件夹下执行
+
+```shell
+./qemu-nographic.sh
+```
+
+驱动起来的设备
+
+```shell
+msh />list_device
+device           type         ref count
+-------- -------------------- ----------
+e0       Network Interface    0       
+sd0      Block Device         1       
+rtc      RTC                  0       
+uart1    Character Device     0       
+uart0    Character Device     2  
 ```
 
