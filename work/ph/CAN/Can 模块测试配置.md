@@ -1,0 +1,2 @@
+1. 两套波特率
+2. 配置需要开启CAN_CHECK_WAKEUP_API_SUPPORT
